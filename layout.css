@@ -1,0 +1,22 @@
+textarea {
+  height: 650px;
+  width: 49%;
+  resize: none;
+  font-size: 24px;
+
+}
+.input {
+
+}
+.output {
+
+}
+#key {
+  width: 88%;
+  height: 28px;
+  resize: vertical;
+}
+button {
+  height: 28px;
+  width: 10%;
+}
