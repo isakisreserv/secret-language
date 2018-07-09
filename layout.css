@@ -12,11 +12,14 @@ textarea {
 
 }
 #key {
-  width: 88%;
+  width: 78%;
   height: 28px;
   resize: vertical;
 }
 button {
   height: 28px;
   width: 10%;
+}
+body {
+  font-family: monospace;
 }
