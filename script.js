@@ -1,7 +1,9 @@
 var input = document.getElementById("input");
 var output = document.getElementById("output");
 var key = document.getElementById("key");
-var button = document.getElementById("button");
+var reset = document.getElementById("resetButton");
+var scramble = document.getElementById("scrambleButton");
+var warning = document.getElementById("warning");
 
 var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxyzåäö";
 var list = characters.split("");
@@ -9,24 +11,47 @@ var reveredList = list.slice();
 reveredList.reverse();
 
 window.onload = function() {
+  if (localStorage.getItem("key") != null) {
+    key.value = localStorage.getItem("key");
+  }
   update();
   setInterval(update, 500);
 }
 
 function update() {
-  console.log("ey");
   output.value = crypt(input.value);
   if (characters != key.value) {
     characters = key.value;
+    localStorage.setItem("key", characters);
+    console.log("saved");
     list = characters.split("");
     reveredList = list.slice();
     reveredList.reverse();
+    output.value = crypt(input.value);
+
+    var listCopy = characters.split("");
+    for (var i = 0; i < list.length; i ++) {
+      var char = listCopy[0];
+      listCopy.splice(0,1)
+      if (listCopy.includes(char)) {
+        key.style.backgroundColor = "#f4354c";
+        warning.innerHTML = "WARNING: The key contains duplicates of: \'" + char + "\', the code will not work correctly";
+        return;
+      }
+    }
+    key.style.backgroundColor = "white";
+    warning.innerHTML = "";
   }
 }
 
-button.onclick = function() {
+scramble.onclick = function() {
   key.value = shuffleString(key.value);
   characters = key;
+}
+reset.onclick = function() {
+  key.value = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxyzåäö";
+  characters = key;
+
 }
 
 function crypt(text) {
