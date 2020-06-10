@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Nothing </title>
+    <title>Nothing</title>
     <link rel="stylesheet" type="text/css" href="layout.css">
   <head>
   <body>
-    <textarea id="input">Input</textarea> <textarea readonly id="output">Output</textarea>
-    <textarea id="key">ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxyzåäö</textarea> <button id="scrambleButton"> SCRAMBLE KEY </button> <button id="resetButton"> RESET KEY </button>
-    <h1 id="warning"> </h1>
+    <header>
+      <h1>Secret Language Translator</h1>
+    </header>
+    <section id="main">
+      <div class="half">
+        <h2>Input field</h2>
+        <textarea id="input">Input</textarea> 
+      </div>
+      <div class="half">
+        <h2>Output field</h2>
+        <textarea readonly id="output">Output</textarea>
+      </div>
+    </section>
+    <section id="settings">
+      <h2>Key settings</h2>
+      <div>
+        <p>Key:</p>
+        <textarea id="key" spellcheck="false">ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxyzåäö</textarea> 
+        <button id="scrambleButton"> Scramble Key </button> 
+        <button id="resetButton"> Reset Key </button>
+      </div>
+    </section>
     <script type="text/javascript" src="script.js"> </script>
   </body>
 </html>

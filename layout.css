@@ -1,25 +1,100 @@
-textarea {
-  height: 650px;
-  width: 49%;
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 100px auto 80px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, button {
+  text-align: center;
+}
+
+header {
+  padding: 17px;
+  display: grid;
+}
+
+header h1 {
+  text-decoration: underline;
+  margin: auto;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 20px 30px 20px;
+}
+
+#main h2 {
+  margin: 0;
+}
+
+#main .half {
+  display: grid;
+  grid-template-rows: 24px auto;
+  padding: 0;
+}
+
+#main textarea {
+  width: 100%;
   resize: none;
   font-size: 24px;
-
+  padding: 0;
+  background-color: powderblue;
+  border-radius: 3px;
+  box-sizing: border-box;
+  min-height: 150px;
 }
-.input {
 
+#settings {
+  padding: 0 20px;
 }
-.output {
 
+#settings h2 {
+  margin: 0;
 }
+
+#settings div {
+  display: flex;
+}
+
+#settings div p {
+  margin: 0;
+  max-height: 100%;
+  font-size: 24px;
+  padding: 2px;
+}
+
 #key {
-  width: 78%;
   height: 28px;
-  resize: vertical;
+  resize: none;
+  flex-grow: 1;
+  font-size: 24px;
+  background-color: palegreen;
+  border-radius: 3px;
 }
 button {
-  height: 28px;
-  width: 10%;
+  width: 200px;
+  min-width: 120px;
+  font-size: inherit;
+  background-color: lightgoldenrodyellow;
+  border: 1px solid gray;
 }
-body {
-  font-family: monospace;
+
+textarea:focus {
+  outline: 2px dotted  gray;
+}
+
+@media only screen and (max-width: 1200px) {
+  #main {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
